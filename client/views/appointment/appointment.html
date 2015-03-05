@@ -1,0 +1,50 @@
+<template name="appointment">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h3> New Appointments</h3>
+                {{#each newAppointments}}
+                    <div class="col-md-3">
+                        <div class="well well-sm">
+                            <h5 class="">
+                                date: {{toLocalDate}}
+                            </h5>
+                            <h5 class="">
+                                name: {{name}}
+                            </h5>
+                            <p class="">
+                                {{messege}}
+                            </p>
+                            <p>
+                                <span class="btn btn-success accept btn-xs">Accept</span>
+                                <span class="btn btn-danger regect btn-xs">Regect</span>
+                            </p>
+                        </div>
+                    </div>
+
+                {{/each}}
+            </div>
+            <div class="col-md-5">
+                <h3> Upcoming Appointments</h3>
+                 {{#each upcomingAppointment}}
+                     <div class="well well-lg">
+                         {{> displayAppointment}}
+                     </div>
+
+
+                 {{/each}}
+            </div>
+
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+
+
+</template>
+<template name="displayAppointment">
+    <h5> With: here will be name</h5>
+    <div class="" id="{{_id}}"></div>
+    {{startClock}}
+</template>

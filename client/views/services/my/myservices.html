@@ -1,0 +1,16 @@
+<template name="listServices">
+    <div class="container">
+    <div class="row">
+        {{#each services}}
+            <div class="col-md-3">
+                <div class="well well-sm box-shadow-preview">
+                    <span class="text-center text-info">{{title}}</span>
+                    <p> {{desc}}</p>
+                    <span class="btn btn-primary btn-xs"> View Detail</span>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    </div>
+</template>

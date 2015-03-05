@@ -1,0 +1,56 @@
+<template name="layout">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Merchant App</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                    {{#if currentUser}}
+                    <li><a href="/services/list">My services</a></li>
+                    <li><a href="/appointment">Appointment <span class="badge text-danger">{{appointmentCount}}</span> </a></li>
+                    <li><a href="/services/new">Create New Services</a></li>
+                    {{/if}}
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {{#if loggingIn}}
+                        <li> <a href="#">Logging in .....</a></li>
+                     {{/if}}
+                    {{#if currentUser}}
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{currentUser.profile.name}}
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">preferences</a></li>
+                                <li><a href="#">profile</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" class="logout">logout</a></li>
+                            </ul>
+                        </li>
+                        {{else}}
+                        <li><a href="/accounts">Login/Signup</a></li>
+
+                    {{/if}}
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div>
+        {{> yield}}
+    </div>
+</template>
